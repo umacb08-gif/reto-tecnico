@@ -103,3 +103,13 @@ jobs:
       # Archivo de metadata opcional
       - name: Display image digest
         run: echo "IMAGE_DIGEST=${{ steps.build-and-push.outputs.digest }}"
+
+      - name: Deploy private GHCR image to Container App
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          containerAppName: app-reto-tecnico
+          resourceGroup: rg-reto-tecnico
+          imageToDeploy: ghcr.io/umacb08-gif/reto-tecnico:${{ github.sha }}
+          registryServer: ghcr.io
+          registryUsername: ${{ github.actor }}
+          registryPassword: ${{ secrets.GHCR_PAT }}
