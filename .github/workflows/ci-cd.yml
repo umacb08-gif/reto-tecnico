@@ -23,9 +23,6 @@ jobs:
       - name: Build and run tests
         run: mvn -B -V -DskipTests=false test package
 
-      - name: Generate coverage report
-        run: mvn jacoco:report
-
       - name: Run Checkstyle
         run: mvn checkstyle:check || true
 
