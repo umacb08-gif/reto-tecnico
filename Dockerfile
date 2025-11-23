@@ -1,5 +1,7 @@
 FROM registry.access.redhat.com/ubi9/openjdk-21:1.23
 RUN pwd
+RUN ls
+CMD ["sh", "-c", "pwd && exec bash"]
 
 ENV LANGUAGE='en_US:en'
 
