@@ -70,6 +70,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+
+      - name: Mostrar contenido de target
+        run: |
+            echo "Contenido de target/"
+            ls -R target || echo "NO EXISTE target"
+
+
       # Construcción y push de imagen con tags versionados
       - name: Build and Push Docker image
         uses: docker/build-push-action@v5
