@@ -104,6 +104,11 @@ jobs:
       - name: Display image digest
         run: echo "IMAGE_DIGEST=${{ steps.build-and-push.outputs.digest }}"
 
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
       - name: Deploy private GHCR image to Container App
         uses: azure/container-apps-deploy-action@v1
         with:
