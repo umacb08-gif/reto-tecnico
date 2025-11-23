@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+app:
+  apiKey: "2f5ae96c-b558-4c7b-a590-a501ae1c3f6c"
+  jwt:
+    secret: "ReplaceThisSecretWithAStrongOne" # cambiar antes de publicar
+    issuer: "reto-tecnico"
+    default-exp-seconds: 120
