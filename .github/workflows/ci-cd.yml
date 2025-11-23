@@ -104,6 +104,11 @@ jobs:
       - name: Display image digest
         run: echo "IMAGE_DIGEST=${{ steps.build-and-push.outputs.digest }}"
 
+  deploy-image-to-azure:
+      name: Deploy image to container app
+      needs: build-and-push-image
+      runs-on: ubuntu-latest
+      steps:
       - name: Login to Azure
         uses: azure/login@v1
         with:
