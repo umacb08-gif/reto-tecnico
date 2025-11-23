@@ -15,8 +15,9 @@
         <quarkus.platform.version>3.29.4</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <quarkus.package.type>fast-jar</quarkus.package.type>
     </properties>
-
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
