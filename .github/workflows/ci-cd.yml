@@ -70,6 +70,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+# Build Quarkus (fast-jar obligatorio)
+      - name: Build Quarkus app (fast-jar)
+        run: mvn -B clean package -Dquarkus.package.type=fast-jar
+
 
       - name: Mostrar contenido de target
         run: |
