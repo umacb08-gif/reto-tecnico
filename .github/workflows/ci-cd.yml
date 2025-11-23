@@ -68,7 +68,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GGITHUB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # Construcción y push de imagen con tags versionados
       - name: Build and Push Docker image
