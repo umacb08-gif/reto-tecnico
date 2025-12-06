@@ -33,6 +33,10 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      # Build Test Quarkus
+      - name: Build Test Quarkus app
+        run: mvn test
+
       # Build Quarkus (fast-jar obligatorio)
       - name: Build Quarkus app (fast-jar)
         run: mvn -B clean package -Dquarkus.package.type=fast-jar
@@ -76,6 +80,15 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+
+# Cache de dependencias Maven
+      - name: Cache Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2-
 
 # Build Quarkus (fast-jar obligatorio)
       - name: Build Quarkus app (fast-jar)
